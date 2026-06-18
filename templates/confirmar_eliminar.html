@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="premium-card text-center py-5 mx-auto mt-5" style="max-width: 500px; border: 1px solid rgba(239, 68, 68, 0.4);">
+    <i class="bi bi-exclamation-triangle text-danger display-3 mb-3"></i>
+    <h3 class="fw-bold text-white mb-2">¿Confirmar Eliminación?</h3>
+    <p class="text-muted px-3">Estás a punto de borrar de forma irreversible la descripción <strong class="text-white">"{{ gasto.descripcion }}"</strong> de valor <strong class="text-danger">-${{ gasto.monto }}</strong> en MySQL.</p>
+    
+    <form method="POST" class="mt-4 d-flex justify-content-center gap-3">
+        <a href="{{ url_for('lista_gastos') }}" class="btn btn-outline-light border-secondary px-4">Abortar</a>
+        <button type="submit" class="btn btn-danger btn-premium bg-danger px-4 fw-bold">Eliminar de la BD</button>
+    </form>
+</div>
+{% endblock %}

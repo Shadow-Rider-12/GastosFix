@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="row align-items-center mb-4">
+    <div class="col">
+        <h2 class="fw-bold m-0">Hola de nuevo 👋</h2>
+        <p class="text-muted m-0">Aquí tienes el estado consolidado de tus finanzas.</p>
+    </div>
+    <div class="col-auto">
+        <a href="{{ url_for('crear_gasto_html') }}" class="btn btn-premium"><i class="bi bi-plus-lg me-2"></i>Añadir Registro</a>
+    </div>
+</div>
+
+<div class="row g-4 mb-5">
+    <div class="col-md-6">
+        <div class="gradient-card">
+            <span class="text-white-50 text-uppercase small fw-bold">Balance Total Gastado</span>
+            <h1 class="display-4 fw-bold my-2">${{ "{:,.0f}".format(total) }}</h1>
+            <div class="d-flex justify-content-between mt-4 text-white-50 small">
+                <span>GastosFix Premium Account</span>
+                <span>Active <i class="bi bi-check-circle-fill text-white"></i></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="premium-card h-100 d-flex flex-column justify-content-center">
+            <span class="text-muted text-uppercase small fw-bold">Operaciones Registradas</span>
+            <h2 class="display-5 fw-bold text-white my-2">{{ cantidad }} Transacciones</h2>
+            <p class="text-muted small m-0 mt-2"><i class="bi bi-shield-check text-success me-1"></i> Sincronizado correctamente con MySQL</p>
+        </div>
+    </div>
+</div>
+
+<div class="text-center py-4">
+    <a href="{{ url_for('lista_gastos') }}" class="btn btn-outline-light px-4 border-secondary rounded-pill">Ver Historial de Movimientos</a>
+</div>
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="row align-items-center mb-4">
+    <div class="col">
+        <h2 class="fw-bold m-0">Detalle de Transacción</h2>
+        <p class="text-muted m-0">Comprobante informático interno de auditoría.</p>
+    </div>
+</div>
+
+<div class="premium-card mx-auto" style="max-width: 550px;">
+    <div class="text-center py-4 border-bottom border-secondary mb-4">
+        <span class="text-muted small text-uppercase fw-bold">{{ categoria.nombre }}</span>
+        <h1 class="display-5 fw-bold text-danger my-2">-${{ "{:,.0f}".format(gasto.monto) }}</h1>
+        <p class="text-white fw-medium m-0">{{ gasto.descripcion }}</p>
+    </div>
+
+    <div class="row g-3 small">
+        <div class="col-6 text-muted">ID de Operación:</div>
+        <div class="col-6 text-end text-white fw-bold">#{{ gasto.id }}</div>
+
+        <div class="col-6 text-muted">Fecha del Flujo:</div>
+        <div class="col-6 text-end text-white">{{ gasto.fecha }}</div>
+
+        <div class="col-6 text-muted">Canal / Medio de Pago:</div>
+        <div class="col-6 text-end text-info fw-semibold">{{ metodo_pago.nombre }}</div>
+    </div>
+
+    <div class="d-flex gap-2 mt-5">
+        <a href="{{ url_for('lista_gastos') }}" class="btn btn-outline-light border-secondary w-50">Regresar</a>
+        <a href="{{ url_for('editar_gasto_html', id=gasto.id) }}" class="btn btn-premium btn-warning text-dark w-50 fw-bold">Editar Fila</a>
+    </div>
+</div>
+{% endblock %}
