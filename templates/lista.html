@@ -42,7 +42,7 @@
         <tbody>
             {% for g in gastos %}
             <tr>
-                <td class="text-muted small">{{ g.fecha }}</td>
+                <td class="text-info fw-medium small">{{ g.fecha }}</td>
                 <td class="fw-semibold text-white">{{ g.descripcion }}</td>
                 <td class="text-danger fw-bold">-${{ "{:,.0f}".format(g.monto) }}</td>
                 <td class="text-center">
